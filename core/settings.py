@@ -51,6 +51,26 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        # Default conf throttle DRF
+        # 'rest_framework.throttling.AnonRateThrottle',
+        # 'rest_framework.throttling.UserRateThrottle'
+
+        # Custom throttle with scope
+        'app.throttles.LimitThrottle',
+        'app.throttles.RateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        # 'anon': '20/day',
+        # 'user': '100/day',
+
+        # Client
+        'limited': '1/min',
+        'burst': '10/min',
+    }
+}
+
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
