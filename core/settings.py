@@ -60,6 +60,7 @@ REST_FRAMEWORK = {
         # Custom throttle with scope
         'app.throttles.LimitThrottle',
         'app.throttles.RateThrottle',
+        'app.throttles.VeryLimitedThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
         # 'anon': '20/day',
@@ -68,6 +69,7 @@ REST_FRAMEWORK = {
         # Client
         'limited': '1/min',
         'burst': '10/min',
+        'custom_limited': '1/day'
     }
 }
 

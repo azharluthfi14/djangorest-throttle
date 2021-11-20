@@ -1,6 +1,10 @@
 from django.urls import path
-from .views import ExampleView
+from .views import (
+    ExampleLimitedView,
+    ExampleVeryLimitedView
+)
 
 urlpatterns = [
-    path('', ExampleView.as_view())
+    path('', ExampleLimitedView.as_view()),
+    path('limited/', ExampleVeryLimitedView.as_view()),
 ]

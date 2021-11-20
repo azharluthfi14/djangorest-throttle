@@ -8,3 +8,7 @@ class LimitThrottle(UserRateThrottle):
 
 class RateThrottle(UserRateThrottle):
     scope = 'burst'
+
+
+class VeryLimitedThrottle(UserRateThrottle):
+    scope = 'custom_limited'
